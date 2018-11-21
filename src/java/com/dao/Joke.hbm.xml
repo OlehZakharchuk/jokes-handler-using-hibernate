@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 8, 2018 6:36:55 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.dao.Joke" table="joke" catalog="oleh_db" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="person" class="com.dao.Person" fetch="select">
+            <column name="personid" not-null="true" />
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content" length="1000" />
+        </property>
+    </class>
+</hibernate-mapping>
